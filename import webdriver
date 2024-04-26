@@ -1,0 +1,171 @@
+'''
+import time
+
+# from selenium import webdriver
+#
+# opts = webdriver.ChromeOptions()
+# opts.add_experimental_option("detach", True)
+#
+# driver = webdriver.Chrome(options=opts)
+
+
+#----------------------------------------------------------------------------
+# driver.get(r'C:\Users\Ramya\PycharmProjects\selenium-QCO-SOEPSD-A3-2-4\files\loading.html')
+# time.sleep(30)
+#
+# driver.find_element('xpath', '//input[@name="fname"]').send_keys('Ram')
+# driver.find_element('xpath', '//input[@name="lname"]').send_keys('Kumar')
+
+
+#---------------------------------------------------------------------------------
+# driver.get(r'C:\Users\Ramya\PycharmProjects\selenium-QCO-SOEPSD-A3-2-4\files\loading.html')
+# driver.implicitly_wait(30)
+#
+# driver.find_element('xpath', '//input[@name="fname"]').send_keys('Ram')
+# driver.find_element('xpath', '//input[@name="lname"]').send_keys('Kumar')
+
+
+#-----------------------------------------------------------------------------------
+
+# start_time = time.time()
+#
+# driver.get("https://www.myntra.com/")
+# driver.implicitly_wait(30)
+#
+# driver.find_element('class name', 'desktop-searchBar').send_keys('Adidas')
+# driver.find_element('xpath', '//li[text()="Adidas Shoes"]').click()
+#
+# shoes_name = driver.find_elements('xpath', '//h4[@class="product-product"]')
+# shoe_names_list = []
+# for shoes in shoes_name[::2]:
+#     shoe_names_list.append(shoes.text)
+#
+# shoe_prices_list = []
+# shoes_price = driver.find_elements('xpath', '//div[@class="product-price"]')
+# for price in shoes_price:
+#     shoe_prices_list.append(price.text)
+#
+# driver.close()
+# # for shoe, price in zip(shoe_names_list, shoe_prices_list):
+# #     print(shoe, '-', price)
+#
+# end_time = time.time()
+# print(end_time-start_time, 'seconds')
+
+#-----------------------------------------------------------------------------------------------
+
+## explicit wait
+
+## WebDriverWait --> class
+## expected_conditions --> module
+
+# from selenium import webdriver
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions
+#
+# opts = webdriver.ChromeOptions()
+# opts.add_experimental_option("detach", True)
+#
+# driver = webdriver.Chrome(options=opts)
+# wait_object = WebDriverWait(driver, 30)
+#
+# driver.get(r'C:\Users\Ramya\PycharmProjects\selenium-QCO-SOEPSD-A3-2-4\files\loading.html')
+#
+# element = driver.find_element('xpath', '//div[contains(text(), "FirstName: ")]')
+# wait_object.until(expected_conditions.visibility_of(element))
+#
+# driver.find_element('xpath', '//input[@name="fname"]').send_keys('Ram')
+# driver.find_element('xpath', '//input[@name="lname"]').send_keys('Kumar')
+
+
+#---------------------------------------------------------------------------------------
+
+# from selenium import webdriver
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions
+#
+# opts =  webdriver.ChromeOptions()
+# opts.add_experimental_option("detach", True)
+#
+# driver = webdriver.Chrome(options=opts)
+# driver.implicitly_wait(30)
+# wait_object = WebDriverWait(driver, 30)
+#
+# driver.get('https://www.saucedemo.com/')
+#
+# driver.find_element('xpath', '//input[@id="user-name"]').send_keys('standard_user')
+# driver.find_element('xpath', '//input[@id="password"]').send_keys('secret_sauceee')
+# driver.find_element('xpath', '//input[@id="login-button"]').click()
+#
+# try:
+#     home_page_element = driver.find_element('xpath', '//span[text()="Products"]')
+#     wait_object.until(expected_conditions.visibility_of(home_page_element))
+#     print('successfull login')
+# except:
+#     print('unsuccessfull login')
+
+
+#----------------------------------------------------------------------------------------------
+
+# from selenium import webdriver
+#
+# opts =  webdriver.ChromeOptions()
+# opts.add_experimental_option("detach", True)
+#
+# driver = webdriver.Chrome(options=opts)
+#
+# driver.get(r'C:\Users\Ramya\PycharmProjects\selenium-QCO-SOEPSD-A3-2-4\files\progressbar.html')
+# time.sleep(2)
+#
+# driver.find_element('xpath', '//button[text()="Click Me"]').click()
+# time.sleep(45)
+# driver.find_element('xpath', '//button[text()="Click Me"]').click()
+
+#--------------------------------------------------------------------------------------------------
+
+
+# from selenium import webdriver
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions
+#
+#
+# opts =  webdriver.ChromeOptions()
+# opts.add_experimental_option("detach", True)
+#
+# driver = webdriver.Chrome(options=opts)
+# wait_obj = WebDriverWait(driver, 30)
+#
+# driver.get(r'C:\Users\Ramya\PycharmProjects\selenium-QCO-SOEPSD-A3-2-4\files\progressbar.html')
+# time.sleep(2)
+#
+# driver.find_element('xpath', '//button[text()="Click Me"]').click()
+#
+# ## wait_obj.until(expected_conditions.presence_of_element_located(('loc_name', 'loc_value')))
+# wait_obj.until(expected_conditions.presence_of_element_located(('xpath', '//div[text()="100%"]')))
+#
+# driver.find_element('xpath', '//button[text()="Click Me"]').click()
+
+#-------------------------------------------------------------------------------
+
+
+# from selenium import webdriver
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions
+#
+# opts =  webdriver.ChromeOptions()
+# opts.add_experimental_option("detach", True)
+#
+# driver = webdriver.Chrome(options=opts)
+# driver.implicitly_wait(30)
+# wait_object = WebDriverWait(driver, 30)
+#
+# driver.get('https://www.flipkart.com/')
+# time.sleep(5)
+#
+# wait_object.until(expected_conditions.presence_of_element_located(('xpath', '//a[@class="_1jKL3b"]'))).click()
+# time.sleep(5)
+#
+# driver.find_element('xpath','//input[@class="_2IX_2- VJZDxU"]').send_keys(9972590441)
+# driver.find_element('xpath','//button[text()="Request OTP"]').click()
+# # driver.find_element('xpath','//a[@class="H6-NpN _3N4_BX"]').click()
+
